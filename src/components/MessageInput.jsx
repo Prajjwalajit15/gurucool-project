@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const MessageInput = ({ onSend, isDarkMode }) => {
   const [input, setInput] = useState("");
 
-  // Trigger send on Enter or click
+   
   const handleSend = () => {
     if (input.trim()) {
       onSend(input.trim());

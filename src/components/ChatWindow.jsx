@@ -2,9 +2,9 @@ import React, { useEffect, useRef } from "react";
 import MessageBubble from "./MessageBubble";
 
 const ChatWindow = ({ messages, isDarkMode, isTyping }) => {
-  const bottomRef = useRef(null); // Reference for auto-scroll
+  const bottomRef = useRef(null);  
 
-  // Scroll to bottom on new message or when typing
+   
   useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, isTyping]);
@@ -13,12 +13,12 @@ const ChatWindow = ({ messages, isDarkMode, isTyping }) => {
     <div className={`flex-1 overflow-y-auto px-4 py-2 space-y-3 ${
       isDarkMode ? "bg-gray-800 text-white" : "bg-white text-black"
     }`}>
-      {/* Render each message */}
+       
       {messages.map((msg) => (
         <MessageBubble key={msg.id} {...msg} isDarkMode={isDarkMode} />
       ))}
 
-      {/* Typing animation */}
+       
       {isTyping && (
         <div className="flex items-center gap-2 animate-pulse text-sm text-gray-500">
           <img
@@ -30,7 +30,7 @@ const ChatWindow = ({ messages, isDarkMode, isTyping }) => {
         </div>
       )}
 
-      {/* Scroll anchor */}
+       
       <div ref={bottomRef} />
     </div>
   );
